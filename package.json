@@ -7,7 +7,7 @@
     "start": "nodemon --exec babel-node --max-old-space-size=8192 src/server.js",
     "build": "babel src --out-dir dist",
     "serve": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon --exec babel-node --max-old-space-size=8192 src/test.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

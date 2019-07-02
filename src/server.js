@@ -42,14 +42,15 @@ const trace = async () => {
             const decodetx_response = await rpc('decoderawtransaction', [rawtx])
             const decodetx = decodetx_response.data.result
 
-            const tx = {
-                ...decodetx,
-                time: block.time,
-                height: block.height
+            if (decodetx.vout[0].scriptPubKey.addresses) {
+                const tx = {
+                    ...decodetx,
+                    time: block.time,
+                    height: block.height
+                }
+    
+                await TX.findOneAndUpdate({ txid: tx.txid }, tx, { upsert: true, setDefaultsOnInsert: true })
             }
-
-            await TX.findOneAndUpdate({ txid: tx.txid }, tx, { upsert: true, setDefaultsOnInsert: true })
-
             
         }
         checkpoint.at += 1
