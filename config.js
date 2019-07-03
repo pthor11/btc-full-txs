@@ -9,7 +9,7 @@ const mongo = {
     password: process.env.MONGO_PASSWORD || '',
     url: process.env.MONGO_URL || 'localhost',
     port: process.env.MONGO_URL || '27017',
-    db: process.env.MONGO_DB || 'btc-full-txs'
+    db: process.env.MONGO_DB || 'btc-txs'
 }
 
 const btc = {
