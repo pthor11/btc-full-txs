@@ -9,4 +9,4 @@ const TXSchema = new mongoose.Schema({
    vout: {type: mongoose.Schema.Types.Mixed, default: null}
 })
 
-export default mongoose.conn.model('TX', TXSchema, 'txs', true)
+export default mongoose.conn.model('TX', TXSchema, 'btc', true)

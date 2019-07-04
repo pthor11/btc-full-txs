@@ -5,11 +5,11 @@ dotenv.config()
 const port = process.env.PORT || 4000
 
 const mongo = {
-    user: process.env.MONGO_USER || '',
-    password: process.env.MONGO_PASSWORD || '',
-    url: process.env.MONGO_URL || 'localhost',
+    user: process.env.MONGO_USER || 'txs',
+    password: process.env.MONGO_PASSWORD || 'txs123',
+    url: process.env.MONGO_URL || '192.168.1.250',
     port: process.env.MONGO_URL || '27017',
-    db: process.env.MONGO_DB || 'btc-txs'
+    db: process.env.MONGO_DB || 'full-txs?authSource=txs'
 }
 
 const btc = {

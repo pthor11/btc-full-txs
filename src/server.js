@@ -7,7 +7,7 @@ let checkpoint = null
 const trace = async () => {
     try {
 
-        checkpoint = checkpoint || (await Checkpoint.findOne({ mission: 'fulltx' }) || new Checkpoint({ mission: 'fulltx', at: 0 }))
+        checkpoint = checkpoint || (await Checkpoint.findOne({ mission: 'btc-fulltx' }) || new Checkpoint({ mission: 'btc-fulltx', at: 0 }))
 
         await checkpoint.save()
 
