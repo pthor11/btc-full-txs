@@ -43,13 +43,13 @@ const trace = async () => {
             const decodetx = decodetx_response.data.result
 
             if (decodetx.vout[0].scriptPubKey.addresses) {
-                const tx = {
+                const tx = new TX ({
                     ...decodetx,
                     time: block.time,
                     height: block.height
-                }
-    
-                await TX.findOneAndUpdate({ txid: tx.txid }, tx, { upsert: true, setDefaultsOnInsert: true })
+                })
+                await tx.save()
+                // await TX.findOneAndUpdate({ txid: tx.txid }, tx, { upsert: true, setDefaultsOnInsert: true })
             }
             
         }
